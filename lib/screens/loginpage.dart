@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'VSU Work Study',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),

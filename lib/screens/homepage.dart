@@ -7,17 +7,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isClockIn = true; // Initial state is clocked in
+  bool isClockIn = true;
+  String currentDate = '';
   String currentTime = '';
 
   @override
   void initState() {
     super.initState();
-    _updateTime();
+    _updateDateTime();
   }
 
-  void _updateTime() {
+  void _updateDateTime() {
     setState(() {
+      currentDate = DateFormat.yMd().format(DateTime.now());
       currentTime = DateFormat.Hm().format(DateTime.now());
     });
   }
@@ -25,15 +27,46 @@ class _HomePageState extends State<HomePage> {
   void _toggleClock() {
     setState(() {
       isClockIn = !isClockIn;
-      _updateTime();
+      _updateDateTime();
     });
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome'),
+        title: Text('Work Study App'),
+        centerTitle: true,
+        automaticallyImplyLeading: false, 
+        actions: [
+          PopupMenuButton<String>(
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: const Text('Schedule'),
+                  // Add functionality or route navigation for the Settings option
+                  onTap: () {
+                    // Add code to handle the Settings option
+                  },
+                ),
+                PopupMenuItem(
+                  child: const Text('Worked'),
+                  // Add functionality or route navigation for the Settings option
+                  onTap: () {
+                    // Add code to handle the Settings option
+                  },
+                ),
+                PopupMenuItem(
+                  child: const Text('Logout'),
+                  // Go to the previous screen when Logout is selected
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ];
+            },
+          ),
+        ],
       ),
       body: Container(
         color: Theme.of(context).colorScheme.background,
@@ -41,11 +74,19 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Welcome',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              const Padding(
+                padding: EdgeInsets.all(40.0),
+                child: Text(
+                  'Welcome,',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
               ),
               SizedBox(height: 20),
+              Text(
+                currentDate,
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
               Text(
                 currentTime,
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
