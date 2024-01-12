@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'schedulepage.dart';
+import 'workedpage.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Work Study App'),
+        title: const Text('Work Study App'),
         centerTitle: true,
         automaticallyImplyLeading: false, 
         actions: [
@@ -57,7 +59,10 @@ class _HomePageState extends State<HomePage> {
                   child: const Text('Worked'),
                   // Add functionality or route navigation for the Settings option
                   onTap: () {
-                    // Add code to handle the Settings option
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WorkedPage()),
+                    );
                   },
                 ),
                 PopupMenuItem(

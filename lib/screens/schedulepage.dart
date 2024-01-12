@@ -8,6 +8,7 @@ class SchedulePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Schedule'),
+        centerTitle: true,
       ),
       backgroundColor: appBackGroundGrey,
       body: Column(
@@ -15,7 +16,7 @@ class SchedulePage extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(
-              'Schedule',
+              'Calender View',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
