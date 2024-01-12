@@ -24,25 +24,25 @@ class _WorkedPageState extends State<WorkedPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Select the Time Frame to see what you worked',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,),
             ),
             SizedBox(height: 40),
-            Text(
+            const Text(
               'Total Hours Worked:',
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(height: 8),
-            // Add a widget to display the total hours worked, you can use a TextField, Text, or any other widget based on your needs
+            // Add a widget to display the total hours worked
 
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Select Time Frame:',
               style: TextStyle(fontSize: 18),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             CheckboxListTile(
               title: Text('Weekly'),
               value: weeklyChecked,
