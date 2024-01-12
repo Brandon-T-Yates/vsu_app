@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'schedulepage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -46,7 +47,10 @@ class _HomePageState extends State<HomePage> {
                   child: const Text('Schedule'),
                   // Add functionality or route navigation for the Settings option
                   onTap: () {
-                    // Add code to handle the Settings option
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SchedulePage()),
+                    );
                   },
                 ),
                 PopupMenuItem(
